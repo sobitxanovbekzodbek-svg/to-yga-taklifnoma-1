@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Maqsadjon & Maftunaxon — Nikoh To'yi Taklifnomasi</title>
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Falling Pink Rose Petals & Gold Sparkles -->
+  <canvas id="petals-canvas"></canvas>
+
+  <div class="app-wrapper">
+    <div class="phone-mockup">
+
+      <!-- ==========================================================================
+           TOP STICKY BAR (AUDIO & LANGUAGE TOGGLES)
+           ========================================================================== -->
+      <header class="top-nav">
+        <button id="audio-toggle-btn" class="audio-toggle-btn" aria-label="Musiqa">
+          <div id="sound-bars" class="equalizer-bars muted">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <span id="music-state-label" data-i18n="nav_music_off">O'chirilgan</span>
+        </button>
+
+        <!-- Exact song from the video -->
+        <audio id="bg-music-audio" src="toy_musiqa.mp4" loop preload="auto"></audio>
+
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="uz_lat">LOTIN</button>
+          <button class="lang-btn" data-lang="uz_cyr">КИРИЛЛ</button>
+        </div>
+      </header>
+
+      <!-- ==========================================================================
+           SCENE 1: WAX SEAL & CLOSED PERGAMENT (COVER)
+           ========================================================================== -->
+      <section id="seal-screen" class="seal-screen">
+        <div class="velvet-pattern"></div>
+
+        <div class="seal-header-text">
+          <span class="seal-badge" data-i18n="seal_badge">Maxsus taklifnoma</span>
+          <h1 class="seal-title" data-i18n="seal_title">To'yga tayyorgarlik ko'rayotganlar uchun</h1>
+          <p class="seal-subtitle" data-i18n="seal_subtitle">Kelin va kuyovning baxt to'yiga marhamat!</p>
+        </div>
+
+        <div class="scroll-capsule" id="scroll-capsule" onclick="openInvitation()">
+          
+          <div class="parchment-cylinder"></div>
+          <div id="golden-cord" class="golden-cord"></div>
+
+          <!-- Hanging Golden Tassels -->
+          <div class="tassels-container">
+            <div class="tassel">
+              <div class="tassel-knot"></div>
+              <div class="tassel-threads"></div>
+            </div>
+            <div class="tassel">
+              <div class="tassel-knot"></div>
+              <div class="tassel-threads"></div>
+            </div>
+          </div>
+
+          <!-- Wax Seal (A & M) with Laser Cut and Split Halves -->
+          <div id="wax-seal" class="wax-seal">
+            <div class="seal-glow-aura"></div>
+            <div id="seal-cut-line" class="seal-cut-line"></div>
+            
+            <div class="seal-halves-wrap">
+              <div class="seal-half seal-half-left">
+                <div class="seal-disc">
+                  <div class="seal-inner-emboss">
+                    <span class="seal-monogram-text">M&M</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="seal-half seal-half-right">
+                <div class="seal-disc">
+                  <div class="seal-inner-emboss">
+                    <span class="seal-monogram-text">M&M</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="sparkle-burst" class="sparkle-burst"></div>
+        </div>
+
+        <div class="open-prompt">
+          <button id="open-envelope-btn" class="open-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+            <span data-i18n="open_btn">Muhrni bosing</span>
+          </button>
+          <span class="open-hint" data-i18n="open_hint">Taklifnomani ochish uchun bosing</span>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SCENE 2: UNFURLED INVITATION (MAIN WEDDING CONTENT)
+           ========================================================================== -->
+      <main id="invitation-screen" class="invitation-screen">
+        <div class="parchment-texture"></div>
+
+        <div class="ornamental-frame">
+
+          <!-- Islamic Calligraphy Arch Header -->
+          <div class="arch-header reveal-card">
+            <div class="bismillah-text">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+            <div class="ornament-divider">
+              <span class="ornament-line"></span>
+              <span class="ornament-symbol">✦ ❖ ✦</span>
+              <span class="ornament-line"></span>
+            </div>
+          </div>
+
+          <!-- Oriental Palace Miniature Artwork (Sharqona bog' va favvora) -->
+          <div class="palace-miniature-card reveal-card">
+            <svg class="palace-svg-art" viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#0a1226"/>
+                  <stop offset="60%" stop-color="#14213d"/>
+                  <stop offset="100%" stop-color="#e29578"/>
+                </linearGradient>
+                <linearGradient id="archGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#d4af37"/>
+                  <stop offset="50%" stop-color="#f3e5ab"/>
+                  <stop offset="100%" stop-color="#aa7c11"/>
+                </linearGradient>
+                <linearGradient id="domeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#2a9d8f"/>
+                  <stop offset="100%" stop-color="#19544c"/>
+                </linearGradient>
+                <radialGradient id="fountainGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#bbf2f6" stop-opacity="0.9"/>
+                  <stop offset="100%" stop-color="#2a9d8f" stop-opacity="0.2"/>
+                </radialGradient>
+              </defs>
+
+              <rect width="400" height="320" fill="url(#skyGrad)"/>
+              <circle cx="60" cy="40" r="1.5" fill="#fff" opacity="0.8"/>
+              <circle cx="120" cy="25" r="1.2" fill="#fff" opacity="0.9"/>
+              <circle cx="280" cy="35" r="1.8" fill="#fff" opacity="0.7"/>
+              <circle cx="340" cy="50" r="1" fill="#fff" opacity="0.8"/>
+              <circle cx="190" cy="30" r="1.4" fill="#dfb76c" opacity="0.9"/>
+
+              <!-- Crescent Moon -->
+              <path d="M 320 30 A 18 18 0 1 0 338 52 A 15 15 0 1 1 320 30 Z" fill="#fbe6a2" opacity="0.9"/>
+
+              <!-- Cypress Trees -->
+              <path d="M 50 200 C 45 130 55 90 60 70 C 65 90 75 130 70 200 Z" fill="#0d2b26"/>
+              <path d="M 330 210 C 325 140 335 100 340 80 C 345 100 355 140 350 210 Z" fill="#0d2b26"/>
+
+              <!-- Palace Dome & Portal -->
+              <path d="M 140 180 L 140 120 C 140 85 200 60 200 60 C 200 60 260 85 260 120 L 260 180 Z" fill="url(#domeGrad)"/>
+              <path d="M 200 60 Q 170 95 160 120" stroke="#fbe6a2" stroke-width="1.2" fill="none" opacity="0.6"/>
+              <path d="M 200 60 Q 230 95 240 120" stroke="#fbe6a2" stroke-width="1.2" fill="none" opacity="0.6"/>
+              
+              <path d="M 120 230 L 120 120 C 120 120 200 80 280 120 L 280 230 Z" fill="#1d2d44" stroke="url(#archGrad)" stroke-width="2"/>
+              <path d="M 155 230 L 155 150 C 155 125 200 115 200 115 C 200 115 245 125 245 150 L 245 230 Z" fill="#0b132b"/>
+              <path d="M 200 60 L 200 45" stroke="#dfb76c" stroke-width="2"/>
+              <circle cx="200" cy="44" r="3.5" fill="#fbe6a2"/>
+
+              <!-- Courtyard Tiles -->
+              <path d="M 0 210 L 400 210 L 400 320 L 0 320 Z" fill="#243447"/>
+              <line x1="0" y1="210" x2="400" y2="210" stroke="#dfb76c" stroke-width="1.5" opacity="0.6"/>
+              <line x1="80" y1="210" x2="20" y2="320" stroke="#1b2838" stroke-width="1.5"/>
+              <line x1="160" y1="210" x2="130" y2="320" stroke="#1b2838" stroke-width="1.5"/>
+              <line x1="240" y1="210" x2="270" y2="320" stroke="#1b2838" stroke-width="1.5"/>
+              <line x1="320" y1="210" x2="380" y2="320" stroke="#1b2838" stroke-width="1.5"/>
+
+              <!-- Blossoming Almond Trees -->
+              <g id="blossom-left">
+                <path d="M 20 230 Q 50 150 10 100" stroke="#4a3728" stroke-width="4" fill="none"/>
+                <path d="M 25 160 Q 60 130 80 140" stroke="#4a3728" stroke-width="2.5" fill="none"/>
+                <circle cx="75" cy="135" r="4" fill="#ffb4a2"/>
+                <circle cx="85" cy="142" r="3.5" fill="#ffccd5"/>
+                <circle cx="65" cy="128" r="3" fill="#ffffff"/>
+                <circle cx="15" cy="105" r="4" fill="#ffb4a2"/>
+                <circle cx="8" cy="98" r="3.5" fill="#ffcad4"/>
+                <circle cx="28" cy="95" r="4.5" fill="#ffe5ec"/>
+              </g>
+
+              <g id="blossom-right">
+                <path d="M 380 230 Q 350 150 390 100" stroke="#4a3728" stroke-width="4" fill="none"/>
+                <path d="M 375 160 Q 340 130 320 140" stroke="#4a3728" stroke-width="2.5" fill="none"/>
+                <circle cx="325" cy="135" r="4" fill="#ffb4a2"/>
+                <circle cx="315" cy="142" r="3.5" fill="#ffccd5"/>
+                <circle cx="335" cy="128" r="3" fill="#ffffff"/>
+                <circle cx="385" cy="105" r="4" fill="#ffb4a2"/>
+                <circle cx="392" cy="98" r="3.5" fill="#ffcad4"/>
+              </g>
+
+              <!-- Central Marble Fountain with Animated Spray -->
+              <ellipse cx="200" cy="275" rx="75" ry="24" fill="#1b263b" stroke="#dfb76c" stroke-width="2"/>
+              <ellipse cx="200" cy="273" rx="66" ry="19" fill="url(#fountainGlow)"/>
+              <ellipse cx="200" cy="255" rx="35" ry="12" fill="#2c3e50" stroke="#dfb76c" stroke-width="1.5"/>
+              <ellipse cx="200" cy="254" rx="30" ry="9" fill="#8ecae6" opacity="0.8"/>
+              <path d="M 197 254 L 197 236 L 203 236 L 203 254 Z" fill="#dfb76c"/>
+
+              <!-- Animated Water Sprays -->
+              <g class="water-spray-anim">
+                <path d="M 200 236 Q 185 210 175 250" stroke="#ffffff" stroke-width="1.8" fill="none" opacity="0.85"/>
+                <path d="M 200 236 Q 215 210 225 250" stroke="#ffffff" stroke-width="1.8" fill="none" opacity="0.85"/>
+                <path d="M 200 236 Q 200 200 200 252" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.9"/>
+              </g>
+
+              <!-- Animated Glowing Lanterns -->
+              <line x1="135" y1="120" x2="135" y2="155" stroke="#dfb76c" stroke-width="1"/>
+              <circle cx="135" cy="158" r="7" fill="#ffe49e" class="lantern-glow-anim"/>
+              <line x1="265" y1="120" x2="265" y2="155" stroke="#dfb76c" stroke-width="1"/>
+              <circle cx="265" cy="158" r="7" fill="#ffe49e" class="lantern-glow-anim"/>
+            </svg>
+
+            <!-- Overlay Hero Text Inside Miniature: Maqsadjon & Maftunaxon -->
+            <div class="miniature-overlay-content">
+              <span class="ceremony-badge" data-i18n="ceremony_badge">Nikoh to'yi</span>
+              
+              <div class="couple-names-wrap">
+                <h2 class="couple-hero-name" data-i18n="couple_groom">Maqsadjon</h2>
+                <span class="couple-ampersand" data-i18n="couple_and">va</span>
+                <h2 class="couple-hero-name" data-i18n="couple_bride">Maftunaxon</h2>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==========================================================================
+               INVITATION LETTER TEXT
+               ========================================================================== -->
+          <div class="invitation-letter-box reveal-card">
+            <h3 class="greeting-title" data-i18n="greeting_title">Hurmatli mehmonimiz!</h3>
+            <p class="greeting-text" data-i18n="greeting_text">
+              Sizni farzandlarimiz Maqsadjon va Maftunaxonlarning nikoh to'yi marosimiga lutfan taklif etamiz. Quvonchli kunimizni siz bilan birga nishonlashdan mamnun bo'lamiz.
+            </p>
+          </div>
+
+          <!-- ==========================================================================
+               DATE & COUNTDOWN SECTION (14 NOYABR 2026)
+               ========================================================================== -->
+          <div class="wedding-date-section reveal-card">
+            <span class="section-tag" data-i18n="tag_date">To'y kuni</span>
+
+            <div class="date-medallion-card">
+              <span class="date-day-name" data-i18n="day_name">Shanba</span>
+              
+              <div class="date-number-circle">
+                <span class="date-number">14</span>
+              </div>
+
+              <span class="date-month-year" data-i18n="month_year">Noyabr 2026</span>
+              <span class="date-time" data-i18n="wedding_time">soat 17:00 da</span>
+            </div>
+
+            <!-- Mini Calendar View for November 2026 -->
+            <div class="mini-calendar-wrapper">
+              <div class="mini-calendar-header" data-i18n="month_year">Noyabr 2026</div>
+              
+              <div class="calendar-weekdays">
+                <span>D</span><span>S</span><span>CH</span><span>P</span><span>J</span><span>SH</span><span>Y</span>
+              </div>
+
+              <div class="calendar-days">
+                <!-- Row 1: Nov 1 starts on Sunday (Y) -->
+                <span class="cal-day muted">26</span>
+                <span class="cal-day muted">27</span>
+                <span class="cal-day muted">28</span>
+                <span class="cal-day muted">29</span>
+                <span class="cal-day muted">30</span>
+                <span class="cal-day muted">31</span>
+                <span class="cal-day">1</span>
+                <!-- Row 2 -->
+                <span class="cal-day">2</span>
+                <span class="cal-day">3</span>
+                <span class="cal-day">4</span>
+                <span class="cal-day">5</span>
+                <span class="cal-day">6</span>
+                <span class="cal-day">7</span>
+                <span class="cal-day">8</span>
+                <!-- Row 3: Day 14 (Shanba) Highlighted! -->
+                <span class="cal-day">9</span>
+                <span class="cal-day">10</span>
+                <span class="cal-day">11</span>
+                <span class="cal-day">12</span>
+                <span class="cal-day">13</span>
+                <span class="cal-day active-day">14</span>
+                <span class="cal-day">15</span>
+                <!-- Row 4 -->
+                <span class="cal-day">16</span>
+                <span class="cal-day">17</span>
+                <span class="cal-day">18</span>
+                <span class="cal-day">19</span>
+                <span class="cal-day">20</span>
+                <span class="cal-day">21</span>
+                <span class="cal-day">22</span>
+                <!-- Row 5 -->
+                <span class="cal-day">23</span>
+                <span class="cal-day">24</span>
+                <span class="cal-day">25</span>
+                <span class="cal-day">26</span>
+                <span class="cal-day">27</span>
+                <span class="cal-day">28</span>
+                <span class="cal-day">29</span>
+                <!-- Row 6 -->
+                <span class="cal-day">30</span>
+                <span class="cal-day muted">1</span>
+                <span class="cal-day muted">2</span>
+                <span class="cal-day muted">3</span>
+                <span class="cal-day muted">4</span>
+                <span class="cal-day muted">5</span>
+                <span class="cal-day muted">6</span>
+              </div>
+            </div>
+
+            <!-- Live Countdown Timer -->
+            <div class="countdown-container">
+              <div class="countdown-title" data-i18n="countdown_title">To'yga qadar:</div>
+              <div class="countdown-boxes">
+                <div class="countdown-item">
+                  <div class="countdown-num" id="count-days">00</div>
+                  <div class="countdown-label" data-i18n="label_days">Kun</div>
+                </div>
+                <div class="countdown-item">
+                  <div class="countdown-num" id="count-hours">00</div>
+                  <div class="countdown-label" data-i18n="label_hours">Soat</div>
+                </div>
+                <div class="countdown-item">
+                  <div class="countdown-num" id="count-mins">00</div>
+                  <div class="countdown-label" data-i18n="label_mins">Daqiqa</div>
+                </div>
+                <div class="countdown-item">
+                  <div class="countdown-num" id="count-secs">00</div>
+                  <div class="countdown-label" data-i18n="label_secs">Soniya</div>
+                </div>
+              </div>
+
+              <button id="add-calendar-btn" class="add-calendar-btn">
+                <span data-i18n="btn_add_calendar">📅 Taqvimga qo'shish</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- ==========================================================================
+               WEDDING SCHEDULE PROGRAM TIMELINE
+               ========================================================================== -->
+          <div class="program-section reveal-card">
+            <span class="section-tag" data-i18n="tag_program">To'y dasturi</span>
+
+            <div class="timeline-list">
+              <div class="timeline-item">
+                <div class="timeline-badge">💍</div>
+                <div class="timeline-content">
+                  <div class="timeline-time" data-i18n="prog_1_time">11:00</div>
+                  <div class="timeline-title" data-i18n="prog_1_title">Nikoh marosimi</div>
+                  <div class="timeline-desc" data-i18n="prog_1_desc">Faqat yaqinlar va qarindoshlar uchun</div>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-badge">🤝</div>
+                <div class="timeline-content">
+                  <div class="timeline-time" data-i18n="prog_2_time">17:00</div>
+                  <div class="timeline-title" data-i18n="prog_2_title">Mehmonlarni kutib olish</div>
+                  <div class="timeline-desc" data-i18n="prog_2_desc">Jonli musiqa sadolari ostida mehmonlarni kutib olish</div>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-badge">👑</div>
+                <div class="timeline-content">
+                  <div class="timeline-time" data-i18n="prog_3_time">18:00</div>
+                  <div class="timeline-title" data-i18n="prog_3_title">Kelin-kuyovning kirib kelishi</div>
+                  <div class="timeline-desc" data-i18n="prog_3_desc">Milliy navolar va karnay-surnay sadolari ostida kelin-kuyovning tantanali kirib kelishi</div>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-badge">🍽️</div>
+                <div class="timeline-content">
+                  <div class="timeline-time" data-i18n="prog_4_time">18:30</div>
+                  <div class="timeline-title" data-i18n="prog_4_title">Ziyofat va tabriklar</div>
+                  <div class="timeline-desc" data-i18n="prog_4_desc">Milliy taomlar va samimiy tilaklar</div>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-badge">🎶</div>
+                <div class="timeline-content">
+                  <div class="timeline-time" data-i18n="prog_5_time">19:30</div>
+                  <div class="timeline-title" data-i18n="prog_5_title">Raqslar va musiqa</div>
+                  <div class="timeline-desc" data-i18n="prog_5_desc">Estrada xonandalari ijrosidagi fayzli kuy-qo'shiqlar</div>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-badge">🎂</div>
+                <div class="timeline-content">
+                  <div class="timeline-time" data-i18n="prog_6_time">21:00</div>
+                  <div class="timeline-title" data-i18n="prog_6_title">To'y torti</div>
+                  <div class="timeline-desc" data-i18n="prog_6_desc">Kelin-kuyovning to'y tortini kesish marosimi</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==========================================================================
+               VENUE / TO'YXONA SECTION
+               ========================================================================== -->
+          <div class="venue-section reveal-card">
+            <span class="section-tag" data-i18n="tag_venue">To'yxona</span>
+
+            <div class="venue-card-visual">
+              <svg class="venue-visual-img" viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="hallGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#14213d"/>
+                    <stop offset="100%" stop-color="#0a1128"/>
+                  </linearGradient>
+                </defs>
+                <rect width="360" height="180" fill="url(#hallGrad)"/>
+                <path d="M 40 180 L 40 70 L 180 25 L 320 70 L 320 180 Z" fill="#1b2838" stroke="#dfb76c" stroke-width="1.5"/>
+                <rect x="70" y="80" width="12" height="100" fill="#dfb76c" opacity="0.7"/>
+                <rect x="110" y="80" width="12" height="100" fill="#dfb76c" opacity="0.7"/>
+                <rect x="238" y="80" width="12" height="100" fill="#dfb76c" opacity="0.7"/>
+                <rect x="278" y="80" width="12" height="100" fill="#dfb76c" opacity="0.7"/>
+                <path d="M 140 180 L 140 95 C 140 65 220 65 220 95 L 220 180 Z" fill="#0d182b" stroke="#fbe6a2" stroke-width="2"/>
+                <circle cx="180" cy="110" r="14" fill="#ffd166" opacity="0.8" filter="drop-shadow(0 0 10px #ffea00)"/>
+                <path d="M 150 25 C 150 -5 210 -5 210 25 Z" fill="#dfb76c"/>
+                <line x1="180" y1="-5" x2="180" y2="-15" stroke="#fbe6a2" stroke-width="2"/>
+                <circle cx="180" cy="-16" r="3" fill="#ffffff"/>
+                <polygon points="150,180 210,180 235,180 125,180" fill="#9e1b24"/>
+                <polygon points="160,140 200,140 215,180 145,180" fill="#c73642"/>
+              </svg>
+            </div>
+
+            <h3 class="venue-name" data-i18n="venue_name">Guliston to'yxonasi</h3>
+            <span class="venue-sub-tag" data-i18n="venue_hall">KATTA ZAL</span>
+
+            <p class="venue-address" data-i18n="venue_address">
+              Toshkent sh., Chilonzor tumani, Bunyodkor shoh ko'chasi, 15-uy.
+            </p>
+            <p class="venue-landmark" data-i18n="venue_landmark">
+              Mo'ljal: Chilonzor metro bekati yonida
+            </p>
+
+            <div class="map-actions">
+              <a href="https://yandex.uz/maps/?text=Guliston+to'yxonasi+Toshkent" target="_blank" class="map-btn yandex">
+                <span data-i18n="btn_yandex">📍 Yandex Xaritalar</span>
+              </a>
+              <a href="https://maps.google.com/?q=Guliston+restorani+Tashkent" target="_blank" class="map-btn google">
+                <span data-i18n="btn_google">🗺️ Google Maps</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- ==========================================================================
+               TO'YONA (BANK CARDS)
+               ========================================================================== -->
+          <div class="toyona-section reveal-card">
+            <span class="section-tag" data-i18n="tag_gift">To'yona</span>
+
+            <p class="toyona-intro" data-i18n="gift_intro">
+              Sizning tashrifingiz biz uchun eng katta sovga. Agar to'yona yubormoqchi bo'lsangiz, quyidagi kartalardan foydalanishingiz mumkin:
+            </p>
+
+            <div class="toyona-tabs">
+              <button id="tab-groom" class="toyona-tab active" data-i18n="tab_groom">KUYOV</button>
+              <button id="tab-bride" class="toyona-tab" data-i18n="tab_bride">KELIN</button>
+            </div>
+
+            <div id="active-bank-card" class="bank-card groom-card">
+              <div class="card-top-row">
+                <span id="card-display-bank" class="card-bank-name">IPAK YO'LI BANKI</span>
+                <div class="card-chip"></div>
+              </div>
+
+              <div id="card-display-number" class="card-number">9860 1234 5678 9012</div>
+
+              <div class="card-bottom-row">
+                <div>
+                  <div class="card-holder-label">Karta egasi</div>
+                  <div id="card-display-holder" class="card-holder-name">MAQSADJON ALIMOV</div>
+                </div>
+                <div id="card-display-system" class="card-network-badge">HUMO</div>
+              </div>
+            </div>
+
+            <button id="copy-card-btn" class="copy-card-btn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span data-i18n="btn_copy_card">Karta raqamini nusxalash</span>
+            </button>
+          </div>
+
+          <!-- ==========================================================================
+               RSVP / JAVOB BERISH FORM
+               ========================================================================== -->
+          <div class="rsvp-section reveal-card">
+            <span class="section-tag" data-i18n="tag_rsvp">Javob berish</span>
+            <p class="rsvp-note" data-i18n="rsvp_note">Iltimos, to'y kunigacha javob bering</p>
+
+            <form id="rsvp-form" class="rsvp-form">
+              <div class="form-group">
+                <label class="form-label" for="guest-name" data-i18n="lbl_name">Ismingiz:</label>
+                <input type="text" id="guest-name" class="form-input" placeholder="Masalan: Aziz Rahimov" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" data-i18n="lbl_attendance">Kelishingiz:</label>
+                <div class="attendance-radios">
+                  <div class="radio-card selected" onclick="selectRadioCard(this)">
+                    <input type="radio" id="att-yes" name="attendance" value="kelaman" checked>
+                    <label for="att-yes" class="radio-label-text" data-i18n="opt_coming">Albatta kelaman</label>
+                  </div>
+                  <div class="radio-card" onclick="selectRadioCard(this)">
+                    <input type="radio" id="att-no" name="attendance" value="kela_olmayman">
+                    <label for="att-no" class="radio-label-text" data-i18n="opt_not_coming">Afsuski, kela olmayman</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" data-i18n="lbl_guests">Necha kishi?</label>
+                <div class="counter-box">
+                  <button type="button" id="count-minus" class="counter-btn">-</button>
+                  <span id="guest-count-display" class="counter-value">1</span>
+                  <button type="button" id="count-plus" class="counter-btn">+</button>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="guest-wishes" data-i18n="lbl_wishes">Tilaklaringiz:</label>
+                <textarea id="guest-wishes" class="form-textarea" rows="3" placeholder="Kelin-kuyovga ezgu tilaklar..."></textarea>
+              </div>
+
+              <button type="submit" class="rsvp-submit-btn">
+                <span data-i18n="btn_submit_rsvp">Javobni yuborish</span>
+              </button>
+            </form>
+          </div>
+
+          <!-- ==========================================================================
+               FOOTER / OUTRO CARD
+               ========================================================================== -->
+          <footer class="footer-outro-card reveal-card">
+            <svg class="outro-miniature-svg" viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <radialGradient id="nightGlow" cx="50%" cy="40%" r="60%">
+                  <stop offset="0%" stop-color="#2a3f68"/>
+                  <stop offset="100%" stop-color="#080e1c"/>
+                </radialGradient>
+              </defs>
+              <rect width="360" height="220" fill="url(#nightGlow)"/>
+              
+              <circle cx="50" cy="30" r="1.5" fill="#fff" opacity="0.9"/>
+              <circle cx="110" cy="50" r="1.2" fill="#fff" opacity="0.7"/>
+              <circle cx="200" cy="20" r="1.8" fill="#ffd166" opacity="0.9"/>
+              <circle cx="280" cy="45" r="1.3" fill="#fff" opacity="0.8"/>
+              <circle cx="320" cy="25" r="1.5" fill="#fff" opacity="0.6"/>
+
+              <path d="M 60 190 C 60 90 300 90 300 190" stroke="#dfb76c" stroke-width="2.5" fill="none" opacity="0.7"/>
+              <path d="M 90 190 C 90 115 270 115 270 190" stroke="#dfb76c" stroke-width="1.5" fill="none" opacity="0.5"/>
+              
+              <path d="M 40 70 Q 180 120 320 70" stroke="#dfb76c" stroke-width="1" fill="none" opacity="0.6"/>
+              <circle cx="80" cy="85" r="4" fill="#ffea00" filter="drop-shadow(0 0 5px #ffea00)"/>
+              <circle cx="130" cy="95" r="4.5" fill="#ffd166" filter="drop-shadow(0 0 5px #ffd166)"/>
+              <circle cx="180" cy="98" r="5" fill="#fff" filter="drop-shadow(0 0 7px #fff)"/>
+              <circle cx="230" cy="95" r="4.5" fill="#ffd166" filter="drop-shadow(0 0 5px #ffd166)"/>
+              <circle cx="280" cy="85" r="4" fill="#ffea00" filter="drop-shadow(0 0 5px #ffea00)"/>
+
+              <path d="M 165 190 C 165 160 170 145 175 140 C 172 135 172 125 175 120 C 180 115 186 117 187 122 C 188 128 184 135 180 140 C 185 145 190 160 190 190 Z" fill="#ffffff" opacity="0.85"/>
+              <circle cx="178" cy="122" r="5.5" fill="#ffffff"/>
+              <path d="M 183 125 C 190 135 205 160 210 190 L 175 190 Z" fill="#fbe6a2" opacity="0.4"/>
+            </svg>
+
+            <h3 class="outro-title" data-i18n="outro_title">Sizni kutamiz!</h3>
+            <div class="outro-names" data-i18n="outro_names">Maqsadjon va Maftunaxon</div>
+            
+            <p class="outro-poem" data-i18n="outro_poem">
+              Sen bilan ko'rindi bu hayotim borligi,<br>
+              Baxtimning bag'rida sevgi ifori...<br>
+              Qadamingizga hasanot!
+            </p>
+          </footer>
+
+        </div>
+      </main>
+
+      <!-- Floating mini seal button to return to envelope -->
+      <div id="floating-seal" class="floating-seal-return" style="display: none;" title="Muhrga qaytish">
+        M&M
+      </div>
+
+    </div>
+  </div>
+
+  <div id="toast-notice" class="toast-notice">Xabar</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
